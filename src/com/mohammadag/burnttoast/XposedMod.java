@@ -32,10 +32,10 @@ public class XposedMod implements IXposedHookZygoteInit {
 				PackageManager pm = context.getPackageManager();
 
 				ImageView imageView = new ImageView(context);
-				imageView.setMaxHeight(view.getHeight() + 128);
-				imageView.setMaxWidth(view.getHeight() + 128);
+				imageView.setMaxHeight(view.getHeight() + 64);
+				imageView.setMaxWidth(view.getHeight() + 64);
 				imageView.setAdjustViewBounds(true);
-				imageView.setImageDrawable(pm.getApplicationIcon(context.getPackageName()));
+				imageView.setImageDrawable(context.getApplicationInfo().loadIcon(pm));
 				LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
 						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				params1.gravity = Gravity.CENTER;
